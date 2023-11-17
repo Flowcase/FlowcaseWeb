@@ -2,6 +2,8 @@
 
 # 🌊 Flowcase
 
+![Flowcase Logo](logo.png)
+
 **Flowcase** - Containerized Streaming Platform
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
@@ -23,5 +25,34 @@
 git clone https://github.com/Flowcase/FlowcaseWeb
 
 # Navigate to the project directory
-cd flowcase
+cd FlowcaseWeb
+```
 
+### 🌟 Features
+
+- **High Scalability**: Built to handle varying loads with ease.
+- **Efficient Streaming**: Optimized for low-latency, high-quality streaming.
+- **Docker Ready**: Containerized from the get-go for easy deployment and isolation.
+- **User-Friendly**: Simple setup and management.
+
+### 🔧 Configuration
+
+Customize your Flowcase experience by adjusting the settings in the `config` directory.
+
+### 🖥️ Demo
+
+Check out a live demo [here](http://demo.flowcase.com).
+
+### 🤝 Contributing
+
+We love contributions! If you'd like to contribute, please follow our [contributing guidelines](CONTRIBUTING.md).
+
+### 📜 License
+
+Flowcase is released under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+  © 2023 Flowcase | Crafted with ❤️ by the Flowcase Team
+</div>
