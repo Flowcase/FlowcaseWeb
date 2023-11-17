@@ -2,7 +2,7 @@
 
 # 🌊 Flowcase
 
-![Flowcase Logo](logo.png)
+![Flowcase Logo](static/img/logo.png)
 
 **Flowcase** - Containerized Streaming Platform
 
