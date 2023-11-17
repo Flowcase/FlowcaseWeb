@@ -16,6 +16,8 @@
 
 **Flowcase** is a cutting-edge containerized streaming solution that encapsulates the power of application streaming into scalable, efficient, and easy-to-deploy Docker containers. Designed for high performance and reliability, Flowcase provides a seamless streaming experience.
 
+Trello: https://trello.com/b/3RA0ferr
+
 ### 🚀 Quick Start
 
 ```bash
