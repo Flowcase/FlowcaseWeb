@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refined Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/adadb4646e.js" crossorigin="anonymous"></script>
+    <script src="/static/js/dashboard.js"></script>
+    <style>
+        .hover-effect:hover {
+            background-color: #3b82f6;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+        .floating-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            border-radius: 30px;
+            background-color: #2d3748;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: flex;
+            gap: 40px; /* Increased spacing */
+        }
+        .content-container {
+            padding-top: 100px; /* More space from the navbar */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+    <!-- Centered Floating Navigation Bar -->
+    <div class="floating-nav">
+        <a href="#" class="hover-effect rounded-full p-2"><i class="fas fa-home"></i></a>
+        <a href="#" class="hover-effect rounded-full p-2"><i class="fas fa-desktop"></i></a>
+        <a href="#" class="hover-effect rounded-full p-2"><i class="fas fa-cog"></i></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-container flex flex-wrap justify-center gap-1">
+        {% for droplet in droplets %}
+			<div class="card bg-gray-800 rounded-lg shadow-lg p-5 w-64 text-center hover:shadow-2xl">
+				<h3 class="font-bold text-xl mb-2">{{droplet.name}}</h3>
+				<button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-id="{{droplet.id}}" data-name="{{droplet.name}}" data-image="{{droplet.docker_image}}" onclick="startDroplet(this)">Launch</button>
+			</div>
+		{% endfor %}
+    </div>
+</body>
+</html>
