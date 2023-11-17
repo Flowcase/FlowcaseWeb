@@ -2,8 +2,6 @@
 
 # 🌊 Flowcase
 
-![Flowcase Logo](static/img/logo.png)
-
 **Flowcase** - Containerized Streaming Platform
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
