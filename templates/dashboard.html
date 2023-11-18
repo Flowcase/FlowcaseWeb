@@ -3,53 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refined Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/adadb4646e.js" crossorigin="anonymous"></script>
+    <title>Flowcase Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <script src="/static/js/dashboard.js"></script>
     <style>
-        .hover-effect:hover {
-            background-color: #3b82f6;
-            color: white;
-            transition: background-color 0.3s, color 0.3s;
+        body {
+            background-color: #121212; /* Dark background for body */
+            color: #bbbbbb; /* Light grey for text */
         }
+
+        .navbar {
+            background-color: #1a237e; /* Dark blue for navbar */
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+
+        .card {
+            background-color: #1c1c1c; /* Very dark grey for cards */
+            border: 1px solid #323232; /* Slightly lighter border for definition */
+            transition: transform .2s; /* Animation */
+        }
+
         .card:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s;
+            transform: scale(1.05); /* Scale effect on hover */
+            box-shadow: 0 4px 8px rgba(0,0,0,.3); /* More pronounced shadow on hover */
         }
-        .floating-nav {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px;
-            border-radius: 30px;
-            background-color: #2d3748;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            display: flex;
-            gap: 40px; /* Increased spacing */
+
+        .btn-success {
+            background-color: #0d47a1; /* Brighter blue for buttons */
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,.2);
         }
-        .content-container {
-            padding-top: 100px; /* More space from the navbar */
+
+        .btn-success:hover {
+            background-color: #0a3068; /* Darker shade for button hover */
         }
+
+        /* Floating Navbar Style */
+        .floating-navbar {
+        position: fixed;
+        bottom: 45px; /* Increased distance from the bottom */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        background-color: #1a237e;
+        border-radius: 30px; /* Oval shape */
+        padding: 5px 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,.3);
+        z-index: 1000;
+    }
+
+        .floating-navbar a {
+            color: #fff;
+            margin: 0 20px; /* Increased spacing */
+            font-size: 18px;
+            text-decoration: none; /* Removes underline */
+        }
+
+        .floating-navbar i {
+            font-size: 24px; /* Larger icons */
+        }
+
     </style>
 </head>
-<body class="bg-gray-900 text-gray-300">
-    <!-- Centered Floating Navigation Bar -->
-    <div class="floating-nav">
-        <a href="#" class="hover-effect rounded-full p-2"><i class="fas fa-home"></i></a>
-        <a href="#" class="hover-effect rounded-full p-2"><i class="fas fa-desktop"></i></a>
-        <a href="#" class="hover-effect rounded-full p-2"><i class="fas fa-cog"></i></a>
-    </div>
+<body>
 
-    <!-- Main Content -->
-    <div class="content-container flex flex-wrap justify-center gap-1">
-        {% for droplet in droplets %}
-			<div class="card bg-gray-800 rounded-lg shadow-lg p-5 w-64 text-center hover:shadow-2xl">
-				<h3 class="font-bold text-xl mb-2">{{droplet.name}}</h3>
-				<button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-id="{{droplet.id}}" data-name="{{droplet.name}}" data-image="{{droplet.docker_image}}" onclick="startDroplet(this)">Launch</button>
-			</div>
-		{% endfor %}
+<!-- Floating Navbar at the bottom -->
+<div class="floating-navbar">
+    <a href="#" title="Home"><i class="fas fa-home"></i> </a>
+    <a href="#" title="Admin"><i class="fas fa-user-cog"></i> </a>
+    <a href="#" title="Workspaces"><i class="fas fa-briefcase"></i> </a>
+</div>
+
+<!-- Main Content -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Dynamically generate these cards with your data -->
+        
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                {% for droplet in droplets %}
+                <div class="card-body">
+                    <h5 class="card-title">{{droplet.name}}</h5>
+                    <button class="btn btn-success" data-name="{{droplet.name}}" data-id="{{droplet.id}}" data-image="{{droplet.docker_image}}" onclick="startDroplet(this)">Launch</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
