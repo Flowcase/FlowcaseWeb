@@ -35,18 +35,6 @@ cd FlowcaseWeb
 - **Docker Ready**: Containerized from the get-go for easy deployment and isolation.
 - **User-Friendly**: Simple setup and management.
 
-### 🔧 Configuration
-
-Customize your Flowcase experience by adjusting the settings in the `config` directory.
-
-### 🖥️ Demo
-
-Check out a live demo [here](http://demo.flowcase.com).
-
-### 🤝 Contributing
-
-We love contributions! If you'd like to contribute, please follow our [contributing guidelines](CONTRIBUTING.md).
-
 ### 📜 License
 
 Flowcase is released under the [MIT License](LICENSE).
